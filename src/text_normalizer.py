@@ -35,7 +35,10 @@ def remove_html_tags(text: str) -> str:
             Output string.
     """
     # TODO
+    # load the model tag remover
     tagremover = BeautifulSoup(text,"html.parser")
+
+    # use the function to remove tags and return
     result = tagremover.get_text()
     return result
 
@@ -56,7 +59,18 @@ def stem_text(text: str) -> str:
             Output string.
     """
     # TODO
-    raise NotImplementedError
+    # tokenize words to work with
+    words = nltk.word_tokenize(text,language='english')
+
+    # load the stemmer, assign to an object 
+    porter = nltk.PorterStemmer()
+    stemmized_words = []
+
+    # iterate over the words stemmizing, return a unique string
+    for w in words:
+        stemmized_words.append(porter.stem(w))
+    return ' '.join(stemmized_words)
+
 
 
 def lemmatize_text(text: str) -> str:
@@ -74,7 +88,16 @@ def lemmatize_text(text: str) -> str:
             Output string.
     """
     # TODO
-    raise NotImplementedError
+    # create a doc document with information about each token using nlp model from spacy
+    doc = nlp(text)
+    lemmatized_words = []
+
+    # iterate over tokenized words to lemmatize
+    for token in doc:
+        lemmatized_words.append(token.lemma_)
+    
+    # apply str() function to each element to join and return them
+    return ' '.join(map(str,lemmatized_words))
 
 
 def remove_accented_chars(text: str) -> str:
