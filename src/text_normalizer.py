@@ -136,7 +136,11 @@ def remove_special_chars(text: str, remove_digits: Optional[bool] = False) -> st
             Output string.
     """
     # TODO
-    raise NotImplementedError
+    clean_chars = []
+    for w in text:
+        if w.isalpha() or w == ' ':
+            clean_chars.append(w)
+    return ''.join(clean_chars)
 
 
 def remove_stopwords(
