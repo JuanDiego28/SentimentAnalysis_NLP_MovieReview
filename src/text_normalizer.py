@@ -113,7 +113,12 @@ def remove_accented_chars(text: str) -> str:
             Output string.
     """
     # TODO
-    raise NotImplementedError
+    # decompose accented characters into their base characters 
+    # nfkd: "Normalization Form Compatibility Decomposition."
+    nfkd_form = unicodedata.normalize('NFKD', text)
+
+    # filter leaving only the non accented characters 
+    return ''.join([c for c in nfkd_form if not unicodedata.combining(c)])
 
 
 def remove_special_chars(text: str, remove_digits: Optional[bool] = False) -> str:
