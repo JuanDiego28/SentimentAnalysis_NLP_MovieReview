@@ -137,9 +137,11 @@ def remove_special_chars(text: str, remove_digits: Optional[bool] = False) -> st
     """
     # TODO
     clean_chars = []
+    # iterate over the letters, if is alpha or space append
     for w in text:
         if w.isalpha() or w == ' ':
             clean_chars.append(w)
+    # then join the list with single spaces
     return ''.join(clean_chars)
 
 
@@ -165,17 +167,16 @@ def remove_stopwords(
         str
             Output string.
     """
+    # tokenize
     tokenizer = ToktokTokenizer()
     tokens = tokenizer.tokenize(text)
     clean_text = []
+    # check for every word if it is in the stopword list
     for w in tokens:
         if w.lower() not in stopwords:
             clean_text.append(w)
     
     return ' '.join(clean_text)
-
-    
-
 
 
 def remove_extra_new_lines(text: str) -> str:
@@ -191,7 +192,11 @@ def remove_extra_new_lines(text: str) -> str:
             Output string.
     """
     # TODO
-    raise NotImplementedError
+    # split in lines
+    lines = text.splitlines()
+    # Use list comprehension to filter out empty lines
+    non_empty_lines = [line for line in lines if line.strip()]
+    return ' '.join(non_empty_lines)
 
 
 def remove_extra_whitespace(text: str) -> str:
@@ -207,7 +212,7 @@ def remove_extra_whitespace(text: str) -> str:
             Output string.
     """
     # TODO
-    raise NotImplementedError
+    return ' '.join(text.split())
 
 
 def expand_contractions(text, contraction_mapping=CONTRACTION_MAP) -> str:
