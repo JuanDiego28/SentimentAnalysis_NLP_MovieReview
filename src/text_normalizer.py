@@ -35,7 +35,9 @@ def remove_html_tags(text: str) -> str:
             Output string.
     """
     # TODO
-    raise NotImplementedError
+    tagremover = BeautifulSoup(text,"html.parser")
+    result = tagremover.get_text()
+    return result
 
 
 def stem_text(text: str) -> str:
