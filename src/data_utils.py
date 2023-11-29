@@ -60,5 +60,12 @@ def split_data(
         y_test : pd.Series
             List labels for test
     """
-    # TODO
+    X_train, y_train, X_test, y_test = None,None,None,None
+
+    X_train = train.iloc[:,0]
+    y_train = train.iloc[:,1]
+    X_test = test.iloc[:,0]
+    y_test = test.iloc[:,1]
+
+    return X_train, y_train, X_test, y_test
 
