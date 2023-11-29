@@ -165,8 +165,17 @@ def remove_stopwords(
         str
             Output string.
     """
-    # TODO
-    raise NotImplementedError
+    tokenizer = ToktokTokenizer()
+    tokens = tokenizer.tokenize(text)
+    clean_text = []
+    for w in tokens:
+        if w.lower() not in stopwords:
+            clean_text.append(w)
+    
+    return ' '.join(clean_text)
+
+    
+
 
 
 def remove_extra_new_lines(text: str) -> str:
