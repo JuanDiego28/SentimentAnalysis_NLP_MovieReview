@@ -1,3 +1,4 @@
 /sprint05venv/*
 /dataset/*
 /src/__pycache__/*
+/tests/unit/__pycache__/*
