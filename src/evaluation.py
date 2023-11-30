@@ -39,7 +39,7 @@ def get_performance(
     # Use sklearn.metrics.recall_score
     recall = recall_score(y_true=y_test,y_pred = predictions)
     # Use sklearn.metrics.f1_score
-    f1_score = f1_score(y_true=y_test,y_pred = predictions)
+    f1_scoree = f1_score(y_true=y_test,y_pred = predictions)
     # Use sklearn.metrics.classification_report
     report = classification_report(y_true=y_test,y_pred = predictions)
 
@@ -54,7 +54,7 @@ def get_performance(
     print("Accuracy:", accuracy)
     print("Precision:", precision)
     print("Recall:", recall)
-    print("F1 Score:", f1_score)
+    print("F1 Score:", f1_scoree)
     print("\nModel Classification report:")
     print("-" * 30)
     print(report)
@@ -63,7 +63,7 @@ def get_performance(
     print(cm_as_dataframe)
 
     # Return resulting metrics, don't change this code!
-    return accuracy, precision, recall, f1_score
+    return accuracy, precision, recall, f1_scoree
 
 
 def plot_roc(
