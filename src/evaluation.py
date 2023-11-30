@@ -6,7 +6,7 @@ import pandas as pd
 from sklearn import metrics
 from sklearn.base import BaseEstimator
 from sklearn.preprocessing import label_binarize
-
+from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, classification_report, confusion_matrix
 
 def get_performance(
     predictions: Union[List, np.ndarray],
@@ -33,18 +33,18 @@ def get_performance(
     """
     # TODO: Compute metrics
     # Use sklearn.metrics.accuracy_score
-    accuracy = ...
+    accuracy = accuracy_score(y_true=y_test,y_pred = predictions)
     # Use sklearn.metrics.precision_score
-    precision = ...
+    precision = precision_score(y_true=y_test,y_pred = predictions)
     # Use sklearn.metrics.recall_score
-    recall = ...
+    recall = recall_score(y_true=y_test,y_pred = predictions)
     # Use sklearn.metrics.f1_score
-    f1_score = ...
+    f1_score = f1_score(y_true=y_test,y_pred = predictions)
     # Use sklearn.metrics.classification_report
-    report = ...
+    report = classification_report(y_true=y_test,y_pred = predictions)
 
     # TODO: Get Confusion Matrix, use sklearn.metrics.confusion_matrix
-    cm = ...
+    cm = confusion_matrix(y_true=y_test,y_pred = predictions)
 
     # Convert Confusion Matrix to pandas DataFrame, don't change this code!
     cm_as_dataframe = pd.DataFrame(data=cm)
