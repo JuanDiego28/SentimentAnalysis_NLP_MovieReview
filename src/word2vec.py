@@ -28,4 +28,8 @@ def vectorizer(
             document in the corpus.
     """
     # TODO
+    # loop through every row
+    ## loop through every tokenized word, get the vector and sum
+    # get the average of all of those vectors in the review, put in the array
+
     raise NotImplementedError
