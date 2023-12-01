@@ -30,18 +30,26 @@ def vectorizer(
     # TODO
     # loop through every row
     averaged_vectors = []
+    not_found = []
     for row in corpus:
-        total_tokens_row = len(row)
+        total_tokens = 0
+        original_tokens = len(row)
         vct_sum = np.zeros(num_features)
+        ## loop through every tokenized word, get the vector and sum 
         for token in row:
-            vct_sum = vct_sum + model.wv.get_vector(token)
-            print(token)
-        averaged_vectors.append(vct_sum/total_tokens_row)
-        print(np.array(averaged_vectors))
-        break
+            try: 
+                vct_sum = vct_sum + model.wv.get_vector(token)
+                total_tokens+=1
+                # print(token)
+            except Exception:
+                not_found.append(token)
+        # get the average of all of those vectors in the review, put in the array            
+        averaged_vectors.append(vct_sum/total_tokens)
+        
+    return np.array(averaged_vectors)
 
-    ## loop through every tokenized word, get the vector and sum
-    # get the average of all of those vectors in the review, put in the array
+    
+   
 
 
 def w2v_information(model: Word2Vec):
