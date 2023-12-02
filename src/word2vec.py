@@ -48,9 +48,6 @@ def vectorizer(
         
     return np.array(averaged_vectors)
 
-    
-   
-
 
 def w2v_information(model: Word2Vec):
     print("w2vec information:")
