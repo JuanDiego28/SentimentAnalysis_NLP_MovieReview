@@ -23,7 +23,7 @@ def test_best_model():
     )
     app_test = pd.read_csv(config.DATASET_TEST)
 
-    app_test_predict = pd.read_csv(DATASET_TEST_PREDICT)
+    app_test_predict = pd.read_csv(DATASET_TEST_PREDICT)        
 
     roc_auc = metrics.roc_auc_score(
         y_true=app_test["positive"], y_score=app_test_predict["positive"]
