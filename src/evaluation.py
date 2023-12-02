@@ -6,7 +6,7 @@ import pandas as pd
 from sklearn import metrics
 from sklearn.base import BaseEstimator
 from sklearn.preprocessing import label_binarize
-from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, classification_report, confusion_matrix
+from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, classification_report, confusion_matrix, roc_auc_score
 
 def get_performance(
     predictions: Union[List, np.ndarray],
@@ -42,6 +42,8 @@ def get_performance(
     f1_scoree = f1_score(y_true=y_test,y_pred = predictions)
     # Use sklearn.metrics.classification_report
     report = classification_report(y_true=y_test,y_pred = predictions)
+    # Evaluate roc auc 
+    roc_auc = roc_auc_score(y_true=y_test,y_score=predictions)
 
     # TODO: Get Confusion Matrix, use sklearn.metrics.confusion_matrix
     cm = confusion_matrix(y_true=y_test,y_pred = predictions)
@@ -51,6 +53,7 @@ def get_performance(
     # Print metrics, don't change this code!
     print("Model Performance metrics:")
     print("-" * 30)
+    print("Roc_auc:",roc_auc)
     print("Accuracy:", accuracy)
     print("Precision:", precision)
     print("Recall:", recall)
