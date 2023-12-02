@@ -4,5 +4,6 @@
 /tests/unit/__pycache__/*
 lgbm_model_rscv.pkl
 model_w2vec_lem.bin
+log_tuned_model.pkl
 
 
