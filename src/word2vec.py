@@ -33,16 +33,18 @@ def vectorizer(
     not_found = []
     for row in corpus:
         total_tokens = 0
-        original_tokens = len(row)
         vct_sum = np.zeros(num_features)
         ## loop through every tokenized word, get the vector and sum 
         for token in row:
             try: 
                 vct_sum = vct_sum + model.wv.get_vector(token)
                 total_tokens+=1
-                # print(token)
             except Exception:
-                not_found.append(token)
+                try:
+                    vct_sum = vct_sum + model[token]
+                    total_tokens+=1
+                except:
+                    not_found.append(token)
         # get the average of all of those vectors in the review, put in the array            
         averaged_vectors.append(vct_sum/total_tokens)
         
