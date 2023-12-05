@@ -5,5 +5,5 @@
 lgbm_model_rscv.pkl
 model_w2vec_lem.bin
 log_tuned_model.pkl
-
-
+norm_train_reviews_lem.pkl
+norm_test_reviews_lem.pkl
