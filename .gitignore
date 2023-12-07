@@ -8,3 +8,4 @@ log_tuned_model.pkl
 norm_train_reviews_lem.pkl
 norm_test_reviews_lem.pkl
 model.01-0.37.h5
+log_tuned_model_tfidf.pkl
