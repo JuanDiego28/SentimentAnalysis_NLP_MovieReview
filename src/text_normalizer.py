@@ -36,7 +36,7 @@ def remove_html_tags(text: str) -> str:
     """
     # TODO
     # load the model tag remover
-    tagremover = BeautifulSoup(text,"html.parser")
+    tagremover = BeautifulSoup(text, "html.parser")
 
     # use the function to remove tags and return
     result = tagremover.get_text()
@@ -60,17 +60,16 @@ def stem_text(text: str) -> str:
     """
     # TODO
     # tokenize words to work with
-    words = nltk.word_tokenize(text,language='english')
+    words = nltk.word_tokenize(text, language="english")
 
-    # load the stemmer, assign to an object 
+    # load the stemmer, assign to an object
     porter = nltk.PorterStemmer()
     stemmized_words = []
 
     # iterate over the words stemmizing, return a unique string
     for w in words:
         stemmized_words.append(porter.stem(w))
-    return ' '.join(stemmized_words)
-
+    return " ".join(stemmized_words)
 
 
 def lemmatize_text(text: str) -> str:
@@ -95,9 +94,9 @@ def lemmatize_text(text: str) -> str:
     # iterate over tokenized words to lemmatize
     for token in doc:
         lemmatized_words.append(token.lemma_)
-    
+
     # apply str() function to each element to join and return them
-    return ' '.join(map(str,lemmatized_words))
+    return " ".join(map(str, lemmatized_words))
 
 
 def remove_accented_chars(text: str) -> str:
@@ -113,12 +112,12 @@ def remove_accented_chars(text: str) -> str:
             Output string.
     """
     # TODO
-    # decompose accented characters into their base characters 
+    # decompose accented characters into their base characters
     # nfkd: "Normalization Form Compatibility Decomposition."
-    nfkd_form = unicodedata.normalize('NFKD', text)
+    nfkd_form = unicodedata.normalize("NFKD", text)
 
-    # filter leaving only the non accented characters 
-    return ''.join([c for c in nfkd_form if not unicodedata.combining(c)])
+    # filter leaving only the non accented characters
+    return "".join([c for c in nfkd_form if not unicodedata.combining(c)])
 
 
 def remove_special_chars(text: str, remove_digits: Optional[bool] = False) -> str:
@@ -139,10 +138,10 @@ def remove_special_chars(text: str, remove_digits: Optional[bool] = False) -> st
     clean_chars = []
     # iterate over the letters, if is alpha or space append
     for w in text:
-        if w.isalpha() or w == ' ':
+        if w.isalpha() or w == " ":
             clean_chars.append(w)
     # then join the list with single spaces
-    return ''.join(clean_chars)
+    return "".join(clean_chars)
 
 
 def remove_stopwords(
@@ -175,8 +174,8 @@ def remove_stopwords(
     for w in tokens:
         if w.lower() not in stopwords:
             clean_text.append(w)
-    
-    return ' '.join(clean_text)
+
+    return " ".join(clean_text)
 
 
 def remove_extra_new_lines(text: str) -> str:
@@ -196,7 +195,7 @@ def remove_extra_new_lines(text: str) -> str:
     lines = text.splitlines()
     # Use list comprehension to filter out empty lines
     non_empty_lines = [line for line in lines if line.strip()]
-    return ' '.join(non_empty_lines)
+    return " ".join(non_empty_lines)
 
 
 def remove_extra_whitespace(text: str) -> str:
@@ -212,7 +211,7 @@ def remove_extra_whitespace(text: str) -> str:
             Output string.
     """
     # TODO
-    return ' '.join(text.split())
+    return " ".join(text.split())
 
 
 def expand_contractions(text, contraction_mapping=CONTRACTION_MAP) -> str:
