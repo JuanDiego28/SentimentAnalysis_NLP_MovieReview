@@ -343,3 +343,4 @@ def normalize_corpus(
         normalized_corpus.append(doc)
 
     return normalized_corpus
+
