@@ -66,5 +66,5 @@ def split_data(
     y_train = train.iloc[:, 1]
     X_test = test.iloc[:, 0]
     y_test = test.iloc[:, 1]
-# 1
+# 
     return X_train, y_train, X_test, y_test
