@@ -16,7 +16,7 @@ from sklearn.metrics import (
     roc_auc_score,
 )
 
-# 12345
+# 1234
 def get_performance(
     predictions: Union[List, np.ndarray],
     y_test: Union[List, np.ndarray],
