@@ -40,7 +40,7 @@ def get_performance(
         recall : float
         f1_score : float
     """
-    # 12345
+    # 1234
     # TODO: Compute metrics
     # Use sklearn.metrics.accuracy_score
     accuracy = accuracy_score(y_true=y_test, y_pred=predictions)
