@@ -49,7 +49,7 @@ def vectorizer(
         averaged_vectors.append(vct_sum / total_tokens)
 
     return np.array(averaged_vectors)
-# 1234
+# 123
 
 def w2v_information(model: Word2Vec):
     print("w2vec information:")
