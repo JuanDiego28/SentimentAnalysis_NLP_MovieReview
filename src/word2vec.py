@@ -60,4 +60,4 @@ def w2v_information(model: Word2Vec):
     print("-" * 30)
     print("Example word: {}".format(model.wv.index_to_key[0]))
     print(model.wv[0])
-#1
+#
